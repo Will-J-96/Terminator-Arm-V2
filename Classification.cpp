@@ -86,11 +86,14 @@ public:
 	std::string SerialIndex, update = "gesture";
 	std::ofstream TerminatorFile;
 	std::string filepath = "C:\\TeamTerminatorData";
+	std::ifstream TerminatorRefFile;
 	int NewLineflag = 0;
 
 	// We define this function to write the current values that were updated by the on...() functions above
 	void writeData(std::string gesture)
 	{
+		//Open file for reference data
+		TerminatorRefFile.open();
 		// Create and open dynamic outfile 
 		std::string filename = filepath + SerialIndex + ".txt";
 		TerminatorFile.open(filename, std::ofstream::app);
